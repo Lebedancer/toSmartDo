@@ -1,0 +1,8 @@
+{
+  "name": "toSmartDo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:Lebedancer/toSmartDo.git",
+  "author": "Andrei Lebedev <lebedancer@gmail.com>",
+  "license": "MIT"
+}
