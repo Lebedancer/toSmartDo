@@ -1,13 +1,26 @@
 <script setup lang="ts">
-import Item from './components/Item.vue'
+import Item, {itemType} from './components/Item.vue'
+import { reactive } from 'vue'
 
+type store = {
+  items: itemType[]
+}
 
-const items = ['ttt1', 'ttt2', 'ttt3']
+const store = reactive<store>({
+  items: []
+})
+
+fetch('http://localhost:3000/items')
+    .then(response => response.json())
+    .then(data => {
+      store.items = [...data]}
+      );
+
 </script>
 
 <template>
-  <ul v-for="text in items">
-    <Item :text="text"/>
+  <ul>
+    <Item v-for="itemVal in store.items" :key="itemVal.id" :id="itemVal.id" :text="itemVal.text" :checked="itemVal.checked"/>
   </ul>
     
 </template>
